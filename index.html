@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' https://accounts.google.com/gsi/style; connect-src 'self' https://www.googleapis.com https://content.googleapis.com https://oauth2.googleapis.com https://accounts.google.com https://*.googleusercontent.com; frame-src https://accounts.google.com; img-src 'self' data: https://*.ggpht.com https://*.ytimg.com https://*.googleusercontent.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>AutoPilot Uploader</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span id="logo" class="logo" aria-hidden="true"></span>
+        <div>
+          <div class="brand-name">AutoPilot <span class="accent">Uploader</span></div>
+          <div class="brand-tag mono">&gt; auto scheduler untuk YouTube<span class="cursor">_</span></div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button id="license-badge" class="badge" type="button">Lisensi</button>
+      </div>
+    </header>
+    <aside class="sidebar" aria-label="Daftar channel">
+      <div class="sidebar-head">
+        <span class="label">CHANNEL</span>
+        <span id="channel-count" class="mono muted"></span>
+      </div>
+      <nav id="channel-list" class="channel-list"></nav>
+      <button id="add-channel" class="btn btn-ghost add-channel" type="button">+ Tambah channel</button>
+      <label class="setting-row">
+        <input id="open-at-login" type="checkbox">
+        <span>Buka otomatis saat Windows menyala (untuk pengingat batch)</span>
+      </label>
+    </aside>
+    <main id="main" class="main"></main>
+    <section class="terminal" aria-label="Log proses">
+      <div class="terminal-head">
+        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+        <span class="mono muted terminal-title">autopilot@log ~ </span>
+        <button id="log-toggle" class="btn btn-ghost log-toggle" type="button" aria-expanded="true" aria-controls="log">Sembunyikan</button>
+        <select id="log-filter" class="mono" aria-label="Filter log"></select>
+      </div>
+      <div id="log" class="log mono" role="log" aria-live="polite"></div>
+    </section>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="assertive"></div>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script src="app.js"></script>
+</body>
+</html>
